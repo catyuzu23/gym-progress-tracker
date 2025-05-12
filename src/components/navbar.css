@@ -1,0 +1,70 @@
+/* Navbar general */
+.navbar {
+  background-color: #2a2a36;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgb(128, 120, 189);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Container pentru navbar */
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.navbar-logo {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+/* Listele cu link-uri */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Item-ul din navbar */
+.navbar-item {
+  color: #fff;
+  font-size: 1.1em;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-item:hover {
+  color: #646cff; /* Culoare la hover */
+  transform: scale(1.1); /* Mărirea textului */
+}
+
+/* Responsivitate pentru ecrane mici */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-item {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+}
