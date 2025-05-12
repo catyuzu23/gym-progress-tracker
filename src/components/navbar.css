@@ -1,19 +1,20 @@
 /* Navbar general */
 .navbar {
   background-color: #2a2a36;
-  padding: 10px 0;
+  padding: 10px 5px;
   box-shadow: 0 4px 6px rgb(128, 120, 189);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-radius: 20px;
 }
 
 /* Container pentru navbar */
 .navbar-container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  margin:0 auto;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,6 +51,22 @@
   transform: scale(1.1); /* Mărirea textului */
 }
 
+/* Hamburger Menu pentru ecrane mici */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  width: 30px;
+  height: 25px;
+}
+
+.hamburger div {
+  background-color: white;
+  height: 4px;
+  width: 100%;
+}
+
 /* Responsivitate pentru ecrane mici */
 @media (max-width: 768px) {
   .navbar-container {
@@ -58,13 +75,32 @@
   }
 
   .navbar-links {
+    display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
+  }
+
+  .navbar-links.active {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
   }
 
   .navbar-item {
     margin: 10px 0;
     font-size: 1.2em;
   }
+
+  .hamburger {
+    display: flex;
+  }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
