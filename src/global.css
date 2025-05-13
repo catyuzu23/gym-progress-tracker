@@ -77,7 +77,11 @@ nav {
   padding: 10px;
   z-index: 1000; /* Asigură-te că navbar-ul rămâne deasupra altor elemente */
 }
-/* .main-content {
-  margin-top: 60px;
-  padding: 20px;
-} */
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
