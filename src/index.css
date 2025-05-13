@@ -2,4 +2,5 @@
 
 body {
   @apply bg-[#2a2a36] text-white;
+  font-family: 'Inter',sans-serif;
 }
