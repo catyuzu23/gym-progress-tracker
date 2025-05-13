@@ -33,8 +33,8 @@ export default function Register() {
         placeholder="Parolă"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        /><br />
-        <button type="submit">Înregistrează-te</button>
-        </form>
-    );
+      /><br />
+      <button type="submit">Înregistrează-te</button>
+    </form>
+  );
 }
