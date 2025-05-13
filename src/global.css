@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #2a2a36;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,7 +27,7 @@ body {
   display: grid;
   min-width: 320px;
   min-height: 100vh;
-padding-top: 30px; /* Adaptează această valoare în funcție de înălțimea navbar-ului */
+/* padding-top: 30px; Adaptează această valoare în funcție de înălțimea navbar-ului */ 
 
 }
 
@@ -43,12 +43,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2a2a36;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #e9c703;
 }
 button:focus,
 button:focus-visible {
@@ -61,7 +61,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #e9c703;
   }
   button {
     background-color: #f9f9f9;
@@ -73,7 +73,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333; /* Adaptează culoarea */
+  background-color: #2a2a36; /* Adaptează culoarea */
   padding: 10px;
   z-index: 1000; /* Asigură-te că navbar-ul rămâne deasupra altor elemente */
 }
