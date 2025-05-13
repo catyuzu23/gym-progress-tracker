@@ -13,10 +13,10 @@ export default function Home() {
         <img
           src="/preview-dashboard.png"
           alt="Preview aplicație"
-          className="rounded-xl shadow-lg w-full md:w-[40%] object-cover"
+          className="rounded-xl shadow-lg w-full md:w-1/3 object-contain"
         />
 
-        <div className="text-[#e9c703] w-full md:w-[55%]">
+        <div className="text-[#e9c703] w-full md:w-2/3">
           <h2 className="text-2xl font-semibold mb-4">Ce poți face cu aplicația?</h2>
           <ul className="list-disc list-inside space-y-2 text-left">
             <li>Adaugă rapid antrenamente noi</li>
