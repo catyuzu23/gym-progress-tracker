@@ -29,6 +29,11 @@
   font-weight: bold;
   text-decoration: none;
   letter-spacing: 2px;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+}
+.navbar-logo:hover {
+  transform: scale(1.1);
 }
 
 /* Listele cu link-uri */

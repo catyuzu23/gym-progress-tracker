@@ -6,11 +6,13 @@ import Progress from './pages/Progress';
 import Settings from './pages/Settings';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   return (
     <>
-      <Navbar />
+      <div className='app-wrapper'>
+        <Navbar />
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,6 +22,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
+      </div>
+        <Footer />
       </div>
     </>
   );
