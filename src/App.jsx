@@ -6,11 +6,11 @@ import Progress from './pages/Progress';
 import Settings from './pages/Settings';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
-import Footer from './components/Footer.jsx';
+//import Footer from './components/Footer.jsx';
 
 function App() {
   return (
-      <div className='app-wrapper'>
+      <div >
         <Navbar />
         <div className="main-content">
           <Routes>
@@ -22,7 +22,6 @@ function App() {
             <Route path="/register" element={<Register />} />
           </Routes>
         </div>
-        <Footer />
       </div>
   );
 }
