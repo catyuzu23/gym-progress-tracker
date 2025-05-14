@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: grid;
+  /* display: block; */
   min-width: 320px;
   min-height: 100vh;
 /* padding-top: 30px; Adaptează această valoare în funcție de înălțimea navbar-ului */ 
