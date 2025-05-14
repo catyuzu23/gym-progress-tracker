@@ -130,3 +130,7 @@ button {
 button:hover {
   background-color: #ffd700;
 }
+
+.login-title {
+  margin-top: 45px; /* sau cât vrei tu */
+}

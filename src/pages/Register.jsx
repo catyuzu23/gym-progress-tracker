@@ -6,11 +6,26 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const isEmailValid = (email) => {
+    // Regex simplu, nu perfect dar bun pentru validare minimă
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
 
     if (!email || !password) {
       alert('Completează toate câmpurile!');
+      return;
+    }
+
+    if (!isEmailValid(email)) {
+      alert('Email invalid!');
+      return;
+    }
+
+    if (password.length < 4) {
+      alert('Parola trebuie să conțină minim 4 caractere!');
       return;
     }
 
@@ -27,21 +42,23 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <h2>Înregistrare</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      /><br />
-      <input
-        type="password"
-        placeholder="Parolă"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      /><br />
-      <button type="submit">Înregistrează-te</button>
-    </form>
+    <div className="page-wrapper">
+      <h1 className="home-title login-title">Înregistrare</h1>
+      <form onSubmit={handleRegister}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Parolă (minim 4 caractere)"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
