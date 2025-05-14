@@ -9,37 +9,42 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const savedUser = JSON.parse(localStorage.getItem('user'));
-    if (!savedUser) {
-      alert('Nu există cont salvat.');
+    const users = JSON.parse(localStorage.getItem('users') || '{}');
+    const user = users[email];
+
+    if (!user) {
+      alert('Acest cont nu există.');
       return;
     }
 
-    if (email === savedUser.email && password === savedUser.password) {
+    if (user.password === password) {
       localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('currentUser', email);
       alert('Autentificare reușită!');
       navigate('/');
     } else {
-      alert('Date incorecte!');
+      alert('Parolă greșită.');
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Autentificare</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      /><br />
-      <input
-        type="password"
-        placeholder="Parolă"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      /><br />
-      <button type="submit">Autentifică-te</button>
-    </form>
+    <div className="page-wrapper">
+      <form onSubmit={handleLogin}>
+        <h1 className="home-title" >Autentificare</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        /><br />
+        <input
+          type="password"
+          placeholder="Parolă"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        /><br />
+        <button type="submit">Autentifică-te</button>
+      </form>
+    </div>
   );
 }

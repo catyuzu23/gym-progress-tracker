@@ -14,7 +14,14 @@ export default function Register() {
       return;
     }
 
-    localStorage.setItem('user', JSON.stringify({ email, password }));
+    const users = JSON.parse(localStorage.getItem('users') || '{}');
+    if (users[email]) {
+      alert('Acest email este deja înregistrat.');
+      return;
+    }
+
+    users[email] = { email, password };
+    localStorage.setItem('users', JSON.stringify(users));
     alert('Cont creat cu succes!');
     navigate('/login');
   };
