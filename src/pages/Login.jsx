@@ -36,13 +36,13 @@ export default function Login() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        /><br />
+        />
         <input
           type="password"
           placeholder="Parolă"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        /><br />
+        />
         <button type="submit">Autentifică-te</button>
       </form>
     </div>

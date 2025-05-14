@@ -43,8 +43,9 @@ export default function Register() {
 
   return (
     <div className="page-wrapper">
-      <h1 className="home-title login-title">Înregistrare</h1>
       <form onSubmit={handleRegister}>
+        <h1 className="home-title login-title">Înregistrare</h1>
+
         <input
           type="email"
           placeholder="Email"
