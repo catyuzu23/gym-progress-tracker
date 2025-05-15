@@ -58,6 +58,11 @@
   transform: scale(1.1); /* Mărirea textului */
 }
 
+.bordering:hover{
+  background-color: whitesmoke;
+  border-radius: 10px;
+  color: #2a2a36;
+}
 /* Hamburger Menu pentru ecrane mici */
 .hamburger {
   display: none;

@@ -40,7 +40,7 @@ export default function Navbar() {
               <Link to="/register" className="navbar-item">Register</Link>
             </>
           ) : (
-            <button className="navbar-item" onClick={handleLogout}>Logout</button>
+            <Link to="/login" onClick={handleLogout} className="navbar-item bordering">Logout</Link>
           )}
         </div>
       </div>

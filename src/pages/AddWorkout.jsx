@@ -25,70 +25,59 @@ export default function AddWorkout() {
       setErrors(errs);
       return;
     }
-    // TODO: Salvează antrenamentul (ex: localStorage sau context)
-    // Exemplu simplu:
-    const workouts = JSON.parse(localStorage.getItem('workouts') || '[]');
-    workouts.push({ exName, reps: Number(reps), weight: Number(weight), date });
-    localStorage.setItem('workouts', JSON.stringify(workouts));
 
-    alert('Antrenament adăugat!');
+    const currentUser = localStorage.getItem('currentUser');
+    if (!currentUser) {
+      alert('Nu ești autentificat.');
+      return;
+    }
+
+    const key = `workouts_${currentUser}`;
+    const workouts = JSON.parse(localStorage.getItem(key) || '[]');
+    workouts.push({ exName, reps: Number(reps), weight: Number(weight), date });
+    localStorage.setItem(key, JSON.stringify(workouts));
+
+    alert('Antrenament salvat!');
     navigate('/progress');
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-primary text-white rounded-xl shadow-md">
-      <h1 className="text-2xl font-bold text-accent mb-4">Adaugă Workout</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm mb-1">Exercițiu</label>
-          <input
-            type="text"
-            className="w-full p-2 rounded bg-[#333] border border-[#444] focus:border-accent"
-            value={exName}
-            onChange={(e) => setExName(e.target.value)}
-          />
-          {errors.exName && <p className="text-accent text-sm mt-1">{errors.exName}</p>}
-        </div>
+    <div className="page-wrapper">
+      <form onSubmit={handleSubmit}>
+        <h1 className="home-title login-title">Adaugă Workout</h1>
 
-        <div>
-          <label className="block text-sm mb-1">Repetări</label>
-          <input
-            type="number"
-            className="w-full p-2 rounded bg-[#333] border border-[#444] focus:border-accent"
-            value={reps}
-            onChange={(e) => setReps(e.target.value)}
-          />
-          {errors.reps && <p className="text-accent text-sm mt-1">{errors.reps}</p>}
-        </div>
+        <input
+          type="text"
+          placeholder="Exercițiu"
+          value={exName}
+          onChange={(e) => setExName(e.target.value)}
+        />
+        {errors.exName && <p className="error-text">{errors.exName}</p>}
 
-        <div>
-          <label className="block text-sm mb-1">Greutate (kg)</label>
-          <input
-            type="number"
-            className="w-full p-2 rounded bg-[#333] border border-[#444] focus:border-accent"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-          />
-          {errors.weight && <p className="text-accent text-sm mt-1">{errors.weight}</p>}
-        </div>
+        <input
+          type="number"
+          placeholder="Repetări"
+          value={reps}
+          onChange={(e) => setReps(e.target.value)}
+        />
+        {errors.reps && <p className="error-text">{errors.reps}</p>}
 
-        <div>
-          <label className="block text-sm mb-1">Data</label>
-          <input
-            type="date"
-            className="w-full p-2 rounded bg-[#333] border border-[#444] focus:border-accent"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-          {errors.date && <p className="text-accent text-sm mt-1">{errors.date}</p>}
-        </div>
+        <input
+          type="number"
+          placeholder="Greutate (kg)"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+        />
+        {errors.weight && <p className="error-text">{errors.weight}</p>}
 
-        <button
-          type="submit"
-          className="w-full bg-accent text-primary font-semibold py-2 rounded hover:bg-yellow-500 transition"
-        >
-          Salvează
-        </button>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
+        {errors.date && <p className="error-text">{errors.date}</p>}
+
+        <button type="submit">Salvează</button>
       </form>
     </div>
   );
