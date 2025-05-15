@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="home-page bg-[#2a2a36] text-white font-sans">
+    <div className="home-page font-sans">
       {/* Header */}
       <header className="home-header">
         <h1 className="home-title">Bine ai revenit!</h1>

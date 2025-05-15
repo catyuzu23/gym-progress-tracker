@@ -248,3 +248,20 @@ body.light-mode .preview-text {
 body.light-mode .home-howto {
   color: #2a2a36;
 }
+
+body.light-mode .home-howto h2,
+body.light-mode .home-howto p,
+body.light-mode .home-howto {
+  color: #2a2a36;
+}
+
+body.light-mode .preview-text h2,
+body.light-mode .preview-text li,
+body.light-mode .preview-text {
+  color: #2a2a36;
+}
+
+body.light-mode .home-title,
+body.light-mode .home-subtitle {
+  color: #2a2a36;
+}
