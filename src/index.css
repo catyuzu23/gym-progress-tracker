@@ -265,3 +265,8 @@ body.light-mode .home-title,
 body.light-mode .home-subtitle {
   color: #2a2a36;
 }
+
+.home-page,
+.home-page * {
+  font-size: inherit;
+}

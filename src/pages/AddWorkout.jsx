@@ -51,6 +51,10 @@ export default function AddWorkout() {
     workouts.push({ exName, reps: Number(reps), weight: Number(weight), date });
     localStorage.setItem(key, JSON.stringify(workouts));
 
+    const countKey = `workoutCount_${currentUser}`;
+    const oldCount = parseInt(localStorage.getItem(countKey) || '0');
+    localStorage.setItem(countKey, oldCount + 1);
+
     alert('Antrenament salvat!');
     navigate('/progress');
   };

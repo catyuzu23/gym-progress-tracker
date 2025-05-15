@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Progress() {
   const navigate = useNavigate();
-   const [workouts, setWorkouts] = useState([]);
+  const [workouts, setWorkouts] = useState([]);
+  const [workoutCount, setWorkoutCount] = useState(0);
+
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('loggedIn') === 'true';
@@ -18,7 +20,10 @@ export default function Progress() {
     const key = `workouts_${currentUser}`;
     const saved = JSON.parse(localStorage.getItem(key) || '[]');
     setWorkouts(saved);
-  }, [navigate]); 
+    const count = parseInt(localStorage.getItem(`workoutCount_${currentUser}`) || '0');
+    setWorkoutCount(count);
+
+  }, [navigate]);
 
 
 
@@ -26,10 +31,14 @@ export default function Progress() {
     <div className="page-wrapper">
       <div className="centered-layout">
         <h1 className="home-title login-title">Progresul Tău</h1>
+        <p style={{ color: '#e9c703', marginTop: '-1rem' }}>
+  Ai adăugat <strong>{workoutCount}</strong> antrenamente până acum.
+</p>
 
         {workouts.length === 0 ? (
-          <p style={{ color: '#e9c703' }}>Nu ai adăugat încă niciun antrenament.</p>
+          <p style={{ color: '#e9c703' }}>Nu ai înregistrat niciun antrenament.</p>
         ) : (
+          
           <ul className="progress-list">
             {workouts.map((w, index) => (
               <li key={index} className="progress-item">

@@ -7,6 +7,7 @@ export default function Settings() {
   const [currentUser, setCurrentUser] = useState('');
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [fontSize, setFontSize] = useState(localStorage.getItem('fontSize') || 'medium');
 
   // 📥 Ia userul din state (preferat) sau fallback din localStorage
   useEffect(() => {
@@ -21,13 +22,21 @@ export default function Settings() {
     }
   }, [location.state, navigate]);
 
-  // 🎨 Aplică tema
+
   useEffect(() => {
     document.body.className = '';
     if (theme === 'light') {
       document.body.classList.add('light-mode');
     }
   }, [theme]);
+
+  useEffect(() => {
+    document.body.style.fontSize =
+      fontSize === 'small' ? '14px' :
+        fontSize === 'large' ? '18px' : '16px';
+
+    localStorage.setItem('fontSize', fontSize);
+  }, [fontSize]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -65,6 +74,24 @@ export default function Settings() {
         <button onClick={toggleTheme}>
           Schimbă tema ({theme === 'dark' ? 'Mod deschis' : 'Mod întunecat'})
         </button>
+
+        <label style={{ color: '#e9c703' }}>Mărime text:</label>
+        <select
+          value={fontSize}
+          onChange={(e) => setFontSize(e.target.value)}
+          style={{
+            padding: '0.5rem 1rem',
+            borderRadius: '8px',
+            backgroundColor: theme === 'dark' ? '#1f1f28' : '#fff',
+            color: theme === 'dark' ? '#fff' : '#2a2a36',
+            border: '1px solid #e9c703',
+            maxWidth: '200px'
+          }}
+        >
+          <option value="small">Mic</option>
+          <option value="medium">Mediu</option>
+          <option value="large">Mare</option>
+        </select>
 
         <button onClick={handleDeleteWorkouts}>
           Șterge toate antrenamentele
