@@ -21,7 +21,7 @@ export default function Login() {
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('currentUser', email);
       alert('Autentificare reușită!');
-      navigate('/');
+      navigate('/settings', { state: { user: email } });
     } else {
       alert('Parolă greșită.');
     }
@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <div className="page-wrapper">
       <form onSubmit={handleLogin}>
-        <h1 className="home-title login-title" >Autentificare</h1>
+        <h1 className="home-title login-title">Autentificare</h1>
         <input
           type="email"
           placeholder="Email"

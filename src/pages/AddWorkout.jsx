@@ -1,13 +1,27 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
+
+
 
 export default function AddWorkout() {
+
+
   const [exName, setExName] = useState('');
   const [reps, setReps] = useState('');
   const [weight, setWeight] = useState('');
   const [date, setDate] = useState('');
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem('loggedIn') === 'true';
+    if (!loggedIn) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const validate = () => {
     const errs = {};
