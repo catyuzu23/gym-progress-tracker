@@ -24,6 +24,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.fixed-title {
+  font-size: 3.5rem !important;
+}
+
 .home-subtitle {
   font-size: 1.4rem;
   color: #e9c703;
@@ -269,4 +273,8 @@ body.light-mode .home-subtitle {
 .home-page,
 .home-page * {
   font-size: inherit;
+}
+
+form {
+  text-align: center;
 }

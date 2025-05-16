@@ -3,7 +3,7 @@ export default function Home() {
     <div className="home-page font-sans">
       {/* Header */}
       <header className="home-header">
-        <h1 className="home-title">Bine ai revenit!</h1>
+        <h1 className="home-title fixed-title">Bine ai revenit!</h1>
         <p className="home-subtitle">
           Aplicația ta de fitness pentru a urmări progresul zilnic și obiectivele personale.
         </p>
@@ -21,7 +21,6 @@ export default function Home() {
           <h2><strong>Ce poți face cu aplicația?</strong></h2>
           <ul>
             <li>Adaugă rapid antrenamente noi</li>
-            <li>Vizualizează progresul sub formă de grafice</li>
             <li>Gestionează obiectivele personale</li>
             <li>Personalizează experiența din setări</li>
           </ul>
@@ -32,7 +31,7 @@ export default function Home() {
       <section className="home-howto">
         <h2><strong>Cum funcționează?</strong></h2>
         <p><strong>1.</strong> Adaugă Workout din meniu.</p>
-        <p><strong>2.</strong> Vezi Progresul cu statistici.</p>
+        <p><strong>2.</strong> Vezi Progresul din pagina dedicată.</p>
         <p><strong>3.</strong> Folosește Setările pentru personalizare.</p>
       </section>
     </div>
