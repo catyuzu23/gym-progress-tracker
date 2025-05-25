@@ -7,7 +7,7 @@ export default function Register() {
   const navigate = useNavigate();
 
   const isEmailValid = (email) => {
-    // Regex simplu, nu perfect dar bun pentru validare minimă
+    // Regex 
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
