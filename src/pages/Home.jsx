@@ -17,7 +17,7 @@ export default function Home() {
           className="preview-img"
         />
 
-        <div className="preview-text">
+        <div className="preview-text" style={{ marginTop: '20px', marginLeft: '2%' }}>
           <h2><strong>Ce poți face cu aplicația?</strong></h2>
           <ul>
             <li>Adaugă rapid antrenamente noi</li>
