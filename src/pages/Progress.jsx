@@ -25,7 +25,16 @@ export default function Progress() {
 
   }, [navigate]);
 
+  const handleDelete = (index) => {
+    const currentUser = localStorage.getItem('currentUser');
+    if (!currentUser) return;
 
+    const key = `workouts_${currentUser}`;
+    const updated = workouts.filter((_, i) => i !== index);
+    setWorkouts(updated);
+    localStorage.setItem(key, JSON.stringify(updated));
+    setWorkoutCount(updated.length);
+  };
 
   return (
     <div className="page-wrapper">
@@ -42,9 +51,25 @@ export default function Progress() {
           <ul className="progress-list">
             {workouts.map((w, index) => (
               <li key={index} className="progress-item">
+                                {/* <div>
+                  <strong>{w.exName}</strong> - {w.reps} reps x {w.weight} kg
+                  <div className="text-sm text-gray-400">Data: {new Date(w.date).toLocaleDateString('ro-RO')}</div>
+                </div>
+                <button
+                  onClick={() => handleDelete(index)}
+                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-1 px-3 rounded"
+                >
+                  Șterge
+                </button> */}
                 <strong>{w.exName}</strong>
                 {w.reps} reps x {w.weight} kg
                 <span>Data: {w.date}</span>
+                <button
+                  onClick={() => handleDelete(index)}
+                  className="mt-2 bg-red-600 hover:bg-red-700 text-white font-semibold py-0.5 px-1 rounded mt-[3px] text-xs"
+                >
+                  Șterge
+                </button>
               </li>
             ))}
           </ul>
